@@ -3,20 +3,31 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title> {{ name }}'s Watchlist</title>
+        <title> {{ user.name }}'s Watchlist</title>
+        <!-- 把 CSS 写到单独的文件后，浏览器获取到这个文件后会对其进行缓存（其他静态文件同理）
+        所以，每当你对 CSS 文件的内容进行更新后，都需要使用下面的快捷键清除缓存：
+        Google Chrome（Mac）：Command + Shift + R
+        Google Chrome（Windows & Linux）：Ctrl + F5
+        Firefox（Mac）：Command + Shift + R
+        Firefox（Windows & Linux）：Ctrl + F5
+        Safari：Command + Option + R -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
     </head>
     <body>
-        <h2>{{ name }}' Watchlist</h2>
+        <h2>
+            <img alt="Avatar" class="avatar" src="{{ url_for('static', filename='images/avatar.png')}}">
+            {{ user.name }}'s Watchlist
+        </h2>
         <p> {{ movies|length }} Titles</p>
-        <ul>
+        <ul class="movie-list">
             {% for movie in movies %}
             <li>{{ movie.title }} - {{ movie.year }}</li>
             {% endfor %}
         </ul>
+        <img alt="Walking Tototro" class="tototro" src="{{ url_for('static', filename='images/totoro.gif')}}">
         <footer>
             <small>
-                &copy; 2018 
-                <a href="http://helloflask.com/tutorial">HelloFlask</a>
+                &copy; 2018  <a href="http://helloflask.com/tutorial">HelloFlask</a>
             </small>
         </footer>
     </body>
