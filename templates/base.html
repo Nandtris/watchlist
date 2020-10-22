@@ -24,6 +24,13 @@
         <nav>
             <ul>
                 <li><a href="{{ url_for('index') }}">Home</a></li>
+                <!-- 模板内容保护 -->
+                {% if current_user.is_authenticated %}
+                    <li><a href="{{ url_for('setting') }}">Setting</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                {% endif %}
             </ul>
         </nav>
         {% block content %}{% endblock %}
