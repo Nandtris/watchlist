@@ -26,7 +26,6 @@ db = SQLAlchemy(app)
 
 # 使用 Flask-Login 实现用户认证
 # 初始化 Flask-Login:
-
 # 1 实例化扩展类 
 login_manager = LoginManager(app)
 
