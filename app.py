@@ -135,6 +135,7 @@ def page_not_found(e):
 
 # 视图函数(view funciton)--“请求处理函数”
 # 只需要写出相对地址，主机地址、端口号等都不需要写出
+
 @app.route("/", methods=['GET', 'POST']) 
 def index():
     """Add a item"""
@@ -206,6 +207,7 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
+        # ???
         if not username or not password:
             flash('Invalid input.')
             return redirect(url_for('login'))
@@ -225,7 +227,7 @@ def login():
 @login_required #用于视图保护
 def logout():
     logout_user()
-    flash('See you later.')
+    flash('Goodbye.')
     return redirect(url_for('index'))
 
 # 设置用户名字
@@ -243,4 +245,9 @@ def setting():
         db.session.commit()
         flash('Setting updated.')
         return redirect(url_for('index'))
-    return render_template('Setting.html')
+    return render_template('setting.html')
+
+
+
+
+
