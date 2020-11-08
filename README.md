@@ -1,6 +1,6 @@
 # WatchList 
 
-Practice application example from flask tutorial "[Flask 入门教程] (http://helloflask.com/tutorial)".
+Practice application example from flask tutorial [Flask 入门教程] (http://helloflask.com/tutorial).
 
 Demo: http://tuorsi.eu.pythonanywhere.com/
 
